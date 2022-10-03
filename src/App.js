@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Login from './components/login/Login';
+import SignUp from './components/signup/SignUp';
+import Home from './components/home/Home';
+import React, {  useEffect, useState } from 'react';
+import HotToaster from './components/Toaster';
+import EmailVerify from './components/EmailVerify';
+
+const myContext = React.createContext();
+const MyProvider = myContext.Provider;
 
 function App() {
+  const [user, setUser] = useState("");
+  if(!user) setUser(JSON.parse(localStorage.getItem("userInfo")))  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <MyProvider value={{user, setUser}}>
+        <div>
+          <HotToaster/>
+          <Routes >
+            <Route path='/' element={<Login/>} />
+            <Route path='/signup' element={<SignUp/>} />
+            <Route path='/login' element={<Login/>} />
+            <Route path='/home' element={<Home/>} />
+            <Route path='/user/:id/verify/:token' element={<EmailVerify/>} />
+          </Routes>
+        </div>
+      </MyProvider>
+    </BrowserRouter>   
   );
-}
+} 
 
 export default App;
+export {myContext};

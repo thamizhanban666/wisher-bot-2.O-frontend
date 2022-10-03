@@ -1,0 +1,22 @@
+#schedule>form>div>div>label {
+  margin: 12px 5px 2px 5px;
+  font-weight: bold;
+  
+}
+
+#schedule>form>div>div>input {
+  margin: 2px 5px 12px 5px;
+  border: 2px solid rgba(30, 43, 223, 0.808);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
+
+#schedule>form>div>div>input:hover {
+  border-color: rgb(228, 26, 26);
+}
+
+#schedule-text{
+  overflow: visible;
+  width: fit-content !important;
+  height: fit-content ;
+}
