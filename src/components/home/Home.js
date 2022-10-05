@@ -34,7 +34,7 @@ function Home() {
         .then((res) => res.json())
         .then((data) => {
           setImgUrl(data.url.toString());
-          console.log(data.url.toString());
+          // console.log(data.url.toString());
         })
         .catch((err) => {
           console.log(err);
@@ -70,12 +70,13 @@ function Home() {
   }
 
   useEffect(() => {
-    if(!user.email) setUser(JSON.parse(localStorage.getItem("userInfo")))  
-    if (user.token) {      
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    if(!user.email) setUser(userInfo)  
+    if (userInfo.token) {      
       async function getImages() {
         const config = {
           headers: {
-            Authorization: user.token,
+            Authorization: userInfo.token,
           }
         }
         const { data } = await axios.get(`${process.env.REACT_APP_SERVER}/api/image`, config);
