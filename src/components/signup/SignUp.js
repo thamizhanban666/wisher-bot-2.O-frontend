@@ -7,7 +7,7 @@ import { myContext } from '../../App';
 import toast from 'react-hot-toast';
 
 function SignUp() {
-  const { setUser } = useContext(myContext);
+  const navigate = useNavigate();
   const formik = useFormik({
          initialValues: {
             name: "", 
@@ -47,9 +47,7 @@ function SignUp() {
               // console.log(data);
               toast.success(data.message);
               
-              values.email = ""
-              values.name = ""
-              values.password = ""
+              navigate("/login")
 
             } catch (error) {
               toast.error(error.response.data.message);
