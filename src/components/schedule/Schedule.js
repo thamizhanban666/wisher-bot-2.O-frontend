@@ -63,16 +63,6 @@ function Schedule({ selectedImg }) {
     }
   }
 
-  // useEffect(() => {
-  //   setDate("")
-  //   setTime("")
-  //   setEmail("")
-  //   setName("")
-  //   setSubject("")
-  //   setMessage("")
-  // }, [])
-  
-
   return (
     <div className="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
       <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
