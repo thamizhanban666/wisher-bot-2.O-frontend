@@ -70,6 +70,7 @@ function Home() {
   }
 
   useEffect(() => {
+    if(!user.email) setUser(JSON.parse(localStorage.getItem("userInfo")))  
     if (user.token) {      
       async function getImages() {
         const config = {

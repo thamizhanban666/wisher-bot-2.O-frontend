@@ -13,7 +13,6 @@ const MyProvider = myContext.Provider;
 
 function App() {
   const [user, setUser] = useState("");
-  if(!user) setUser(JSON.parse(localStorage.getItem("userInfo")))  
 
   return (
     <BrowserRouter>
