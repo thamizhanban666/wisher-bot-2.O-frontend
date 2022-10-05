@@ -8,7 +8,6 @@ import toast from 'react-hot-toast';
 
 function SignUp() {
   const { setUser } = useContext(myContext);
-  let navigate = useNavigate()
   const formik = useFormik({
          initialValues: {
             name: "", 
@@ -47,10 +46,10 @@ function SignUp() {
               );
               // console.log(data);
               toast.success(data.message);
-
-              localStorage.setItem("userInfo", JSON.stringify(data));
-              setUser(JSON.parse(localStorage.getItem("userInfo")));
-              // navigate("/home");
+              
+              values.email = ""
+              values.name = ""
+              values.password = ""
 
             } catch (error) {
               toast.error(error.response.data.message);
